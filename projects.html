@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Files | TC² Projects</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500&display=swap">
+<link rel="stylesheet" href="home.css">
+<style>.files .item{border:1px solid var(--bd);border-radius:14px;padding:14px;background:#fff}.files img,.files video{width:100%;border-radius:10px;max-height:210px;object-fit:cover;background:#000;margin-bottom:8px}.files a{color:var(--ac);font-weight:500;text-decoration:none;overflow-wrap:anywhere}.files small{display:block;color:var(--mu)}.none{color:var(--mu);padding:30px 0}</style>
+<script defer src="data.js"></script>
+<script defer src="files.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html"><img src="favicon.svg" alt="TC² logo"><span>TC² <b>Projects</b></span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav id="nav"><a href="index.html">Home</a><a href="index.html#projects">Projects</a><a href="index.html#contact">Contact</a><a class="vault" href="projects.html">Files</a></nav>
+</header>
+<section class="sec"><div class="wrap files">
+  <h2>Files</h2><p class="sub">Pictures, videos and documents from my projects.</p>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+  <p class="none" id="none" hidden>No files added yet. Add them in data.js (see the comments at the top).</p>
+</div></section>
+<footer><div class="wrap"><span>© <span id="yr"></span> TC² Projects · tcsquared.co.zw</span><a href="index.html">Back to home</a></div></footer>
+</body>
+</html>

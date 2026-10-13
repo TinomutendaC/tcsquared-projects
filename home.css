@@ -1,0 +1,490 @@
+
+/* 1. VARIABLES */
+:root {
+  --navy:  #061027;   /* dark background colour */
+  --navy2: #0c1b3d;
+  --ac:    #3b82f6;   /* main blue accent */
+  --ac2:   #7db4ff;   /* light blue accent */
+  --gr:    #8a8d91;   /* grey (from the logo) */
+  --tx:    #0f172a;   /* body text */
+  --mu:    #5b6677;   /* muted text */
+  --bd:    #e3e8f0;   /* borders */
+}
+
+
+/* 2. BASE */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;       /* keeps headings clear of the sticky header */
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--tx);
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+.brand {
+  font-family: Sora, Arial, sans-serif;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.wrap {                           /* centred content column */
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sub {                            /* grey line under a section heading */
+  margin: 0 0 26px;
+  color: var(--mu);
+}
+
+
+/* 3. HEADER AND NAVIGATION */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--bd);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--tx);
+  text-decoration: none;
+}
+
+.brand img {
+  height: 38px;
+}
+
+.brand b {
+  color: var(--ac);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--tx);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--ac);
+}
+
+nav .vault {                      /* the dark "Files" pill */
+  padding: 8px 16px;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 999px;
+}
+
+.burger {                         /* hamburger button (phones only) */
+  display: none;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  background: #eef3fb;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+/* 4. HERO (top banner with the background image) */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 78vh;
+  padding: 110px 0 90px;
+  color: #fff;
+  /* dark blue overlay on top of background.png: lower the .96 / .72 to show more of the image */
+  background:
+    linear-gradient(105deg, rgba(6, 16, 39, 0.96) 25%, rgba(12, 40, 100, 0.72)),
+    url("background.png") center / cover no-repeat;
+}
+
+.eyebrow {                        /* small caps line above the headline */
+  margin: 0 0 18px;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ac2);
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+h1 span {                         /* blue second line of the headline */
+  color: var(--ac);
+}
+
+.lead {
+  max-width: 560px;
+  font-size: 1.1rem;
+  color: #d3def0;
+}
+
+.cta {                            /* row holding the two hero buttons */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.tags {                           /* Robotics • Software • Research */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ac2);
+}
+
+.tags li + li::before {           /* dot between the tags */
+  content: "•";
+  margin-right: 10px;
+  color: var(--gr);
+}
+
+
+/* 5. BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: transform 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {                    /* filled blue */
+  color: #fff;
+  background: var(--ac);
+}
+
+.btn-secondary {                  /* outlined, for dark backgrounds */
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* 6. PAGE SECTIONS */
+.sec {
+  padding: 80px 0;
+}
+
+.alt {                            /* light grey band behind a section */
+  background: #f3f6fb;
+}
+
+.filters {                        /* filter buttons above a grid */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.filters button {
+  padding: 8px 18px;
+  font: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filters button.on {              /* the selected filter */
+  color: #fff;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+
+/* 7. PROJECT CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  /* start hidden and slightly lower; home.js adds .in to fade the card in */
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card.in {
+  opacity: 1;
+  transform: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(12, 40, 100, 0.14);
+}
+
+.thumb {                          /* cover image / gradient tile on top of a card */
+  display: grid;
+  place-items: center;
+  height: 150px;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--navy), var(--ac));
+  background-size: cover;
+  background-position: center;
+}
+
+/* tile colours used when a project has no image (set with tone:"r" | "s" | "q" in data.js) */
+.thumb.r { background-image: linear-gradient(135deg, #0c1b3d, #2563eb); }
+.thumb.s { background-image: linear-gradient(135deg, #1e293b, #64748b); }
+.thumb.q { background-image: linear-gradient(135deg, #061027, #0ea5e9); }
+
+.body {                           /* text area of a card */
+  padding: 18px;
+}
+
+.body h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.body p {
+  margin: 0 0 12px;
+  font-size: 0.93rem;
+  color: var(--mu);
+}
+
+.kind {                           /* small label: ROBOTICS, SOFTWARE... */
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ac);
+}
+
+
+/* 8. SKILLS ("What I work with") AND CARD TAGS */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips span {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(12, 40, 100, 0.06);
+}
+
+.body .chips span {               /* smaller tags inside project cards */
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  background: #eef3fb;
+  border: 0;
+  box-shadow: none;
+}
+
+
+/* 9. TOOLS ("Tools I use") */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.tool {
+  padding: 20px 12px;
+  text-align: center;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tool:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(12, 40, 100, 0.12);
+}
+
+.tool i {                         /* the emoji icon */
+  display: block;
+  margin-bottom: 6px;
+  font-size: 2rem;
+  font-style: normal;
+}
+
+
+/* 10. CONTACT BANNER */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 24px;
+}
+
+.contact .sub {
+  margin: 0;
+  color: #b9c8e2;
+}
+
+
+.contact-list {                   /* email and phone lines under the heading */
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-list a {
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+  color: var(--ac2);
+}
+
+
+/* 11. FOOTER */
+footer {
+  padding: 24px 0;
+  font-size: 0.88rem;
+  color: var(--mu);
+}
+
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+footer a {
+  color: var(--ac);
+  text-decoration: none;
+}
+
+
+/* 12. MOBILE (screens 760px wide or less) */
+@media (max-width: 760px) {
+  .burger {
+    display: block;
+  }
+
+  /* menu becomes a dropdown under the header, shown when the burger adds .open */
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--bd);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav .vault {
+    width: auto;
+    margin-top: 6px;
+  }
+
+  .hero {
+    padding: 80px 0 60px;
+  }
+}
+
+
+/* 13. REDUCED MOTION (for visitors who turn animations off) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card {
+    opacity: 1;
+    transform: none;
+  }
+}
